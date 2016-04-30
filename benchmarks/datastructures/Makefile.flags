@@ -1,0 +1,6 @@
+CFLAGS   += -w $(HTM_RETRIES) $(ROT_RETRIES)
+
+CPPFLAGS := $(CFLAGS)
+LIBS     += $(CPPFLAGS) -L/home/shady/lib -ltcmalloc -lrt -lpthread -mcpu=power8 -mtune=power8 -lm
+#LIBS     += $(CPPFLAGS) -L/home/shady/lib -ltcmalloc -lrt -lpthread -mhtm -lm
+LDFLAGS  += $(LIBS)

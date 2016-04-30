@@ -1,0 +1,12 @@
+cd code;
+
+# gcc flags used for both debug and opt builds
+CXXFLAGS="-g -fgnu-tm -O2 -w -I$HOME/boost_1_57_0/ -L$HOME/boost_1_57_0/stage/lib/"
+LDFLAGS="-lboost_system -mrtm -pthread -lm -ltcmalloc -pthread"
+
+#g++ $CXXFLAGS btree_test.cc stupidunit.cc -o btree_test $LDFLAGS -lstdc++
+#g++ $CXXFLAGS randomgenerator_test.cc randomgenerator.cc stupidunit.cc -o randomgenerator_test $LDFLAGS -lstdc++
+#g++ $CXXFLAGS tpccclient_test.cc tpccclient.cc randomgenerator.cc stupidunit.cc -o tpccclient_test $LDFLAGS -lstdc++
+#g++ $CXXFLAGS tpcctables_test.cc tpcctables.cc tpccdb.cc randomgenerator.cc stupidunit.cc -o tpcctables_test $LDFLAGS -lstdc++
+#g++ $CXXFLAGS tpccgenerator_test.cc tpccgenerator.cc tpcctables.cc tpccdb.cc randomgenerator.cc stupidunit.cc -o tpccgenerator_test $LDFLAGS -lstdc++
+g++ $CXXFLAGS memory.cc pair.cc list.cc hashtable.cc tpcc.cc tpccclient.cc tpccgenerator.cc tpcctables.cc tpccdb.cc clock.cc randomgenerator.cc stupidunit.cc -o tpcc $LDFLAGS -lstdc++
