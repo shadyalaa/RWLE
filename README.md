@@ -6,8 +6,9 @@
 
 
 This source code has two directories: 
-1. *backends*, which includes impelementation of different synchronization techniques and 
-2. *benchmarks*, which includes the benchmarks used in the experiments of the paper.
+1. *backends*: impelementation of different synchronization techniques and 
+2. *benchmarks*: the benchmarks used in the experiments of the paper.
+3. *scripts*, scripts used to launch experiments of the paper.
 
 
 **backends:**
@@ -31,6 +32,8 @@ This source code has two directories:
 * tpcc: in-memory port of TPC-C
 
 * stmbench7
+
+* kyotodb
 
 **usage:**
 
@@ -56,4 +59,16 @@ bash build-XXX.sh tle 5 0
 bash build-XXX.sh brlock
 ```
 
+For Kyotodb, go to benchmarks/kyotodb, for each backend there is a folder called kyotocabinet-$Backend. Naviage to the desired backend and use the following command to build it:
 
+```
+make clean; make HTM_RETRIES=-DHTM_RETRIES=$h RETRY_POLICY=-DRETRY_POLICY=$r ROT_RETRIES=-DROT_RETRIES=$r; make install
+```
+
+where h and r are the no. of retries and retry policy as described above.
+
+To run the benchmakr, use the following command:
+
+```
+./kccachetest wicked
+```
